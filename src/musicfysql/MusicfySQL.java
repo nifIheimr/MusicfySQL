@@ -12,9 +12,9 @@ public class MusicfySQL {
     
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException, SQLException {
         int status;
-        String query = "INSERT INTO track VALUES (101, \"Track de prueba\", 0, '0:00', '0000-00-00', \"Musicfy\");";
+        //String query = "INSERT INTO track VALUES (101, \"Track de prueba\", 0, '0:00', '0000-00-00', \"Musicfy\");";
         
-        
+        String query = "SELECT Nombre FROM artista;";
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 
@@ -30,7 +30,8 @@ public class MusicfySQL {
         rs = stmt.executeQuery(query);
         
         while(rs.next()) {
-            
+            String print = rs.getString("Nombre");
+            System.out.printf("%s\n", print);
         }
         
         
